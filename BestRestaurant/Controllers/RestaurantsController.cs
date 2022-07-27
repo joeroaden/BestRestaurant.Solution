@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using BestRestaurant.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BestRestaurant.Controllers
 {
@@ -17,7 +18,7 @@ namespace BestRestaurant.Controllers
 
     public ActionResult Index()
     {
-      List<Restaurant> model = _db.Restaurants.ToList();
+      List<Restaurant> model = _db.Restaurants.Include(restaurant => restaurant.Cuisine).ToList();
       ViewBag.PageTitle = "View All Restaurants";
       return View(model);
     }
@@ -25,6 +26,7 @@ namespace BestRestaurant.Controllers
     public ActionResult Create()
     {
       ViewBag.PageTitle = "New Restaurant";
+      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisinesId", "Name");
       return View();
     }
 

@@ -7,8 +7,8 @@ namespace BestRestaurant.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
+      ViewBag.PageTitle = "Home";
       return View();
     }
-
   }
 }

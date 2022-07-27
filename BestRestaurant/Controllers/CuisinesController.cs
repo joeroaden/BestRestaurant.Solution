@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using BestRestaurant.Models;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BestRestaurant.Controllers
 {
@@ -25,7 +24,7 @@ namespace BestRestaurant.Controllers
 
     public ActionResult Create()
     {
-      // ViewBag.RestaurantId = new SelectList(_db.Restaurants, "RestaurantId", "Name");
+      ViewBag.PageTitle = "New Cuisine";
       return View();
     }
 

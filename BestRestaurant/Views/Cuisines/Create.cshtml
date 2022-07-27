@@ -10,11 +10,8 @@
   </div>
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)
-
-  @Html.LabelFor(model => model.Restaurant)
-  @Html.TextBoxFor(model => model.Restaurant)
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
 
   <input type="submit" value="Add new cuisine" class="btn btn-default"/>
 }
