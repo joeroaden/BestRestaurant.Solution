@@ -22,5 +22,19 @@ namespace BestRestaurant.Controllers
       ViewBag.PageTitle = "View All Cuisines";
       return View(model);
     }
+
+    public ActionResult Create()
+    {
+      // ViewBag.RestaurantId = new SelectList(_db.Restaurants, "RestaurantId", "Name");
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Cuisine cuisine)
+    {
+      _db.Cuisines.Add(cuisine);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
