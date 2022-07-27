@@ -26,7 +26,7 @@ namespace BestRestaurant.Controllers
     public ActionResult Create()
     {
       ViewBag.PageTitle = "New Restaurant";
-      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisinesId", "Name");
+      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
       return View();
     }
 
