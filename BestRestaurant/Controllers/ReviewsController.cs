@@ -18,7 +18,7 @@ namespace BestRestaurant.Controllers
 
     public ActionResult Index()
     {
-      List<Review> model = _db.Reviews.Include(review => review.Restaurant).ToList();
+      List<Review> model = _db.Reviews.ToList();
       ViewBag.PageTitle = "View All Reviews";
       return View(model);
     }

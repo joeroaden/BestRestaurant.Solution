@@ -2,19 +2,16 @@
   Layout = "_Layout";
 }
 
-@model BestRestaurant.Models.Cuisine
+@using BestRestaurant.Models;
 <div class="container">
   <div class="jumbotron text-center">
 <h2>Cuisine Details</h2>
   </div>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-
-
-
+<h3>@ViewBag.Cuisine.Name</h3>
 
 <p>@Html.ActionLink("Add new restaurant", "Create", "Restaurants")</p>
-<p>@Html.ActionLink("Edit Cuisine", "Edit", new { id = Model.CuisineId }) </p>
-<p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</p>
+<p>@Html.ActionLink("Edit Cuisine", "Edit", new { id = ViewBag.Cuisine.CuisineId }) </p>
+<p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = ViewBag.Cuisine.CuisineId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
 </div>
