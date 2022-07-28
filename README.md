@@ -93,7 +93,7 @@ This program was built using *`Microsoft .NET SDK 5.0.401`*, and may not be comp
 ---
 ## Known Bugs
 
-* _No known issues_
+* _Unable to add a review at this time_
 
 ## License
 
