@@ -2,16 +2,31 @@
   Layout = "_Layout";
 }
 
-@using BestRestaurant.Models;
+@model BestRestaurant.Models.Cuisine;
 <div class="container">
   <div class="jumbotron text-center">
 <h2>Cuisine Details</h2>
   </div>
 <hr />
-<h3>@ViewBag.Cuisine.Name</h3>
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This cuisine does not contain any restaurants</p>
+}
+else 
+{
+  <h4>restaurants the cuisine contains:</h4>
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>@join.Restaurant.Name</li>
+    }
+  </ul>
+}
 
 <p>@Html.ActionLink("Add new restaurant", "Create", "Restaurants")</p>
-<p>@Html.ActionLink("Edit Cuisine", "Edit", new { id = ViewBag.Cuisine.CuisineId }) </p>
-<p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = ViewBag.Cuisine.CuisineId })</p>
+<p>@Html.ActionLink("Edit Cuisine", "Edit", new { id = Model.CuisineId }) </p>
+<p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
 </div>
